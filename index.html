@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игорь Щербаков</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4816a910f7.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
+</head>
+<style>
+    html {
+        font-family: 'Roboto', sans-serif;
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        height: 100%;
+    }
+
+    .container {
+        display: flex;
+        height: 100%;
+        /*max-width: 1200px;*/
+        margin: 0 auto;
+    }
+
+    @media only screen and (max-width: 440px) {
+        .left > .me > .name {
+            width: min-content;
+        }
+    }
+
+    @media only screen and (max-width: 1204px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .left {
+            flex: 0;
+        }
+
+        .left > .me {
+            margin-top: 100px;
+        }
+
+        .line-delimiter {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 1205px) {
+        .container {
+            flex-direction: row;
+        }
+
+        .right {
+            overflow: auto;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 0.5;
+        }
+
+        .left > .me {
+            align-self: flex-end;
+            margin-bottom: 40%;
+        }
+    }
+
+    .left {
+        margin-left: 60px;
+    }
+
+    .left > .me > .name {
+        margin-right: 20px;
+        font-size: 52px;
+        letter-spacing: 1px;
+        color: #1d1d1d;
+    }
+
+    .left > .me > .profession {
+        margin-top: 15px;
+        font-size: 28px;
+        color: #4e4e4e;
+        width: max-content;
+    }
+
+    .left > .me > .icons > a {
+        text-decoration: none;
+    }
+
+    .left > .me > .icons > a > i {
+        margin-left: 5px;
+        margin-top: 30px;
+        margin-right: 18px;
+        font-size: 30px;
+        color: #4e4e4e;
+    }
+
+    .line-delimiter {
+        height: 100%;
+        margin-left: 100px;
+        width: 2px;
+        background: #eeeeee;
+    }
+
+    .right {
+        flex: 1;
+    }
+
+    .right > .item {
+        max-width: 800px;
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 60px;
+    }
+
+    .right > .item > .img {
+        image-rendering: optimizeQuality;
+        height: 140px;
+        margin-bottom: 30px;
+    }
+
+    .right > .item > iframe {
+        margin-top: 30px;
+    }
+
+    .right > .item > .screenshots {
+        margin-bottom: 20pt;
+    }
+
+    .right > .item > .screenshots > .screenshot {
+        margin-top: 30px;
+        max-width: 100%;
+        max-height: 40vh;
+        height: auto;
+        border: solid #eaeaea 2px;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
+
+    .right > .item > .screenshots > .first {
+        margin-left: 0;
+    }
+
+    .right > .item > .title {
+        font-size: 32px;
+        color: #313131;
+    }
+
+    .right > .item > .description {
+        margin-top: 18px;
+        font-size: 24px;
+        color: #303030;
+        line-height: 28pt;
+    }
+
+    .right > .item > .description > a {
+        color: #043b99;
+    }
+</style>
+<body>
+<script>
+    window.onload = function () {
+        mediumZoom('[data-zoomable]');
+    }
+</script>
+<div class="container">
+    <div class="left">
+        <div class="me">
+            <div class="name">Игорь Щербаков</div>
+            <div class="profession">Java разработчик</div>
+            <div class="icons">
+                <a href="https://t.me/IgorShcherbakov"><i class="fab fa-telegram-plane"></i></i></a>
+                <a href="mailto:scherbakovigor@icloud.com"> <i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="line-delimiter"></div>
+    <div class="right">
+        <div class="item">
+            <div class="title">Book Tracker</div>
+            <div class="description">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pgW5RNDGuNs?si=zf_pLbUDGCR1DTvj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>Приложение позволяет сохранить свой погресс в чтении книг и делится им с друзьями, 
+                что повышает мотивацию за счет социальной составляющей. 
+                Командный проект на стеке Java/Spring Boot/JOOQ. Инфраструктура GitLab для хранения репозитория, 
+                развертывание с помощью GitLab CI/CD в k8s кластер. </p>
+                
+                <p>Я полностью переработал систему отслежования прогресса, сделав ее более гибкой и наглядной. 
+                Разработал интеграцию с telegram: каждый день в определенное время система публикует сводку 
+                действий пользователей (информацию о прочитанных главах, комментарии). 
+                Реализовал поддержку markdown в комментариях на backend.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">Программа для запоминания て формы</div>
+            <div class="description">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FFgbw8AXh6I?si=fDmbE0z-pLLuibHe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>Обучающая программа на Java. На каждом шаге берет случайный глагол
+                из списка и образует для него て форму (базовая форма глагола в японском языке).</p>
+                
+                <p>Алгоритм состоит из двух частей: первая часть опеределяет спряжение глагола, 
+                вторая - образует форму по правилам. Для обеспечения корректной работы частей (модулей) 
+                программы в ходе разработки применялся подход TDD (Test Driven Development).</p> 
+
+                <a href="https://github.com/shcherbakovigor/t-form">GitHub</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">Чат </div>
+            <div class="description">
+                <p>Учебный проект для изучения стека TCP/IP и методов работы с ним в Java.
+                    Были реализованы консольные сервер и клиент. 
+                    В качестве системы сборки использовался maven.</p> 
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
